@@ -66,7 +66,7 @@ endif()
 # shm_utils
 #
 add_library(
-    shm-utils-library EXCLUDE_FROM_ALL OBJECT
+    shm-utils-library
     shm_utils.h shm_utils.cc
 )
 target_link_libraries(
