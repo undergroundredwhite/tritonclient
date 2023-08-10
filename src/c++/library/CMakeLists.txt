@@ -25,7 +25,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 cmake_minimum_required (VERSION 3.18)
-
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 find_package(Threads REQUIRED)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
@@ -287,6 +287,7 @@ if(TRITON_ENABLE_CC_HTTP OR TRITON_ENABLE_PERF_ANALYZER)
   add_library(
       httpclient_static STATIC
       $<TARGET_OBJECTS:http-client-library>
+      $<TARGET_OBJECTS:shm-utils-library>
   )
   add_library(
       TritonClient::httpclient_static ALIAS httpclient_static
